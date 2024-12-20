@@ -1,0 +1,8 @@
+Package: qotd-client
+Version: 1.0
+Section: base
+Priority: optional
+Architecture: amd64
+Maintainer: Your Name <your.email@example.com>
+Description: QOTD Client
+ A simple client to fetch quotes from a QOTD server.
