@@ -1,0 +1,79 @@
+echo "Updating apk and installing alpine-sdk..."
+apk update && apk add --no-cache alpine-sdk && \
+echo "Adding builduser and abuild group..."
+adduser -D builduser && addgroup builduser abuild && \
+echo "Creating .abuild directory..."
+mkdir -p /home/builduser/.abuild && \
+echo "Setting up abuild configuration..."
+echo 'PACKAGER_PRIVKEY="/home/builduser/.abuild/abkey.rsa"' > /home/builduser/.abuild/abuild.conf && \
+echo '-----BEGIN PRIVATE KEY-----
+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
+VrKWyawD4qoUvngWqiGvq5kHucUYSVY=
+-----END PRIVATE KEY-----' > /home/builduser/.abuild/abkey.rsa && \
+echo '-----BEGIN RSA PUBLIC KEY-----
+MIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEAt7ONNz3Kbwl9G9c6hkND
+B4xFmmcXTORBZAkwvQpP8pKLD10H5ENFyLZtbmDWE44HnmYsz4x8xRqchNiCDbqm
+38qTOkhbMzm5T/x2Sx36MDTrI1LM0c8RzBe2fuxlA2K49+kQpiLRTLOlnK2bTJMM
+HNdHoJvGqojjLzrTlbkmYLHLJHFG5/93TWvYoFOFKWOkBlUvFWjMh9Q0fX/lqlnd
+KntLu+3crak7PruMaZJNF4up5OQgyARUQLuHSsGEaTxYRUTcyjy8hja9xjyDZ/Bg
+qSu7MnDMdKjH4vKkb05XaXtS74jvNkKEbVUrfv+Lpne3rO+dAJpSESuSfIXf0a+d
+MQ4kip02pvG/WLkf39/uctaDlAydrGqbPXJpEV0TAgN8ejL5N8zoAuaeQD3GKC6r
+y1s6mCJWfeodO+joJFCRxS6ZI5Icgq3VR7pFKdscA8gLxNoav1pTocLJpIttTiHj
+EPTJEbx4ZjIGBRnYOS5iCim5PaumUgZt7u9KqLfj3uOoXvmtOV2TO7j0tTL9g7/i
+z/apexFApbeiDW3y9zo8oYoP+R2CAX6IDNRx4bje9rOurkcCggQUTfgrtH9r3PYq
+MjplKHdleRpfAdrsI48LBjsDhjNR3hyHQMMkFaDMDhmWbpxquWRDVReA7Wyebx2r
+OZ0V30kvhXhJqwl/VIimfycCAwEAAQ==
+-----END RSA PUBLIC KEY-----' > /home/builduser/.abuild/abkey.rsa.pub && \
+chown -R builduser:abuild /home/builduser/.abuild && \
+chmod 600 /home/builduser/.abuild/abkey.rsa && \
+chown -R builduser:abuild /qotd-client && \
+echo "Running abuild_util.sh as builduser..." && \
+su builduser -c "/qotd-client/abuild_util.sh"
